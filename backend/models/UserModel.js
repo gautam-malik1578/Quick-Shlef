@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const { validate } = require("./BookModel");
 const userSchema = new mongoose.Schema({
   username: {
@@ -13,17 +13,26 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, " a user must have an email id"],
     unique: true,
+    lowercase: true,
     validate: [validator.isEmail, "plz enter the right format of the email"],
   },
   password: {
     type: String,
     required: [true, "plz enter a password"],
     minlength: 8,
+    select: false,
   },
   confirmPassword: {
     type: String,
-    required: [true, "plz enter a confirm password"],
+    required: [true, "plz enter a confirm password"], //means a required input
     minlength: 8,
+    validate: {
+      //this is only goinng to work when we create && save will not work/run on methods like findbyidandupdate
+      validator: function (el) {
+        return el == this.password;
+      },
+      message: "the password and current password must match",
+    },
   },
   role: {
     type: String,
@@ -35,6 +44,37 @@ const userSchema = new mongoose.Schema({
     default: true,
     select: false,
   },
+  passwordChangedAt: Date,
 });
+userSchema.pre("save", async function (next) {
+  //a middleware
+  // Check if the password field has been modified
+  if (!this.isModified("password")) return next();
+
+  // Hash the password with cost factor 12
+  this.password = await bcrypt.hash(this.password, 12);
+
+  // Remove the confirmPassword field (we don't want to store it in the DB)
+  this.confirmPassword = undefined;
+
+  next();
+});
+// instance method availabe on all the doc of a collection
+userSchema.methods.correctPaasowrd = async function (
+  candidatePassword,
+  userPassword
+) {
+  return await bcrypt.compare(candidatePassword, userPassword);
+};
+
+userSchema.methods.changedPasswordAfter = function (jwtTimeStamp) {
+  //jwtTimeStamp is in sec
+  if (this.passwordChangedAt) {
+    //means that password is changed atleast once
+    const lastChangedAt = parseInt(this.passwordChangedAt.getTime() / 1000, 10); //now this is in ms
+    return jwtTimeStamp < lastChangedAt;
+  }
+  return false;
+};
 const User = mongoose.model("User", userSchema);
 module.exports = User;

@@ -13,6 +13,7 @@ const connectToDb = require("./utilities/conncetionDb");
 const PORT = process.env.PORT || 5000;
 // importing routers
 const bookRouter = require("./routers/BooksRoute");
+const userRouter = require("./routers/UserRoute");
 
 const dbpath = process.env.DATABASE.replace(
   "<db_password>",
@@ -28,7 +29,7 @@ app.use(cors());
 //---------------------------- book route------------------------------
 app.use("/api/v1/book", bookRouter);
 //---------------------------- user route------------------------------
-app.use("/api/v1/user", bookRouter);
+app.use("/api/v1/user", userRouter);
 
 app.all("*", async (req, res) => {
   res.status(404).json({

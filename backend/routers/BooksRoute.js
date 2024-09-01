@@ -5,6 +5,10 @@ const {
   createBook,
   getBookById,
 } = require("../controllers/BooksControllers");
-Router.get("/", getAllBooks).post("/", createBook);
+const { protect, restrictTo } = require("../controllers/AuthController");
+Router.get("/", protect, restrictTo("admin"), getAllBooks).post(
+  "/",
+  createBook
+);
 Router.get("/:id", getBookById);
 module.exports = Router;
