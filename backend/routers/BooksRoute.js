@@ -4,11 +4,15 @@ const {
   getAllBooks,
   createBook,
   getBookById,
+  downloadBookById,
 } = require("../controllers/BooksControllers");
 const { protect, restrictTo } = require("../controllers/AuthController");
-Router.get("/", protect, restrictTo("admin"), getAllBooks).post(
+Router.get("/", protect, getAllBooks).post(
   "/",
+  protect,
+  restrictTo("admin"),
   createBook
 );
-Router.get("/:id", getBookById);
+Router.get("/download/:id", protect, downloadBookById);
+Router.get("/:id", protect, getBookById);
 module.exports = Router;

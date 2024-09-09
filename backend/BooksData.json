@@ -1,0 +1,12 @@
+{
+  "title": "Express in Action",
+  "author": "Even W. Rouault",
+  "likes": 350,
+  "genre": ["Programming", "Technology"],
+  "releasedYear": 2016,
+  "available": true,
+  "size": 3.5,
+  "about": "A comprehensive guide to building web applications with Express.js, focusing on practical examples and best practices.",
+  "imgUrl": "https://example.com/express-in-action.jpg",
+  "filePath": "/books/express-in-action.pdf"
+}

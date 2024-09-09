@@ -3,6 +3,8 @@ const Book = require("../models/BookModel");
 const catchAsync = require("../utilities/catchAsync");
 const AppError = require("../utilities/AppError");
 const { stringify, parse } = require("flatted");
+const fs = require("fs");
+const path = require("path");
 
 exports.getAllBooks = catchAsync(async (req, res, next) => {
   const queryObj = { ...req.query };
@@ -99,4 +101,30 @@ exports.getBookById = catchAsync(async (req, res, next) => {
       },
     });
   }
+});
+
+exports.downloadBookById = catchAsync(async (req, res, next) => {
+  const id = req.params.id;
+
+  // Find the book by ID
+  const book = await Book.findById(id);
+
+  // Check if the book exists
+  if (!book) {
+    return res.status(404).json({
+      status: "fail",
+      message: "No book found with that ID",
+    });
+  }
+  const filePath = path.join(__dirname, "Node.js-Express-in-Action.pdf");
+  // Stream the file to the response   "./controllers/Node.js-Express-in-Action"
+  res.download(filePath, "Node.js-Express-in-Action.pdf", (err) => {
+    if (err) {
+      return res.status(500).json({
+        status: "error",
+        message: "Error downloading file",
+        error: err.message,
+      });
+    }
+  });
 });
