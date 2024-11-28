@@ -16,3 +16,4 @@ Router.get("/", protect, getAllBooks).post(
 Router.get("/download/:id", protect, downloadBookById);
 Router.get("/:id", protect, getBookById);
 module.exports = Router;
+///https:// api/v1/books/get

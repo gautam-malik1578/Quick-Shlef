@@ -36,8 +36,30 @@ const userSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: ["admin", "reader", "author"],
+    enum: ["admin", "reader"],
     default: "reader",
+  },
+  isPremium: {
+    type: Boolean,
+    default: false,
+  },
+  tokens: {
+    // a non permium will have 3 limit and a permium will have 6 limit conversion
+    type: Number,
+    default: 0,
+  },
+  Otp: {
+    type: Number, // we shall keep the opt as a number mate
+  },
+  otpVaildTime: {
+    //this will store the time till we have this user is valid
+    type: Date,
+    default: Date.now() + 15 * 60 * 1000, // 15 min from now mate in ms
+  },
+  isVerified: {
+    // we shall verfy this lad once the otp matches mate
+    type: Boolean,
+    default: false,
   },
   active: {
     type: Boolean,

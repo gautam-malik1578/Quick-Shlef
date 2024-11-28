@@ -1,0 +1,5 @@
+[ 20/11/2024 15:23:37 ] OutputFile::OpenFile, Unexpected Failure. Cannot open file for writing - ./result/ans.pdf
+[ 20/11/2024 15:23:58 ] OutputFile::OpenFile, Unexpected Failure. Cannot open file for writing - ./result/
+[ 20/11/2024 15:24:47 ] OutputFile::OpenFile, Unexpected Failure. Cannot open file for writing - ./result
+[ 20/11/2024 15:25:32 ] OutputFile::OpenFile, Unexpected Failure. Cannot open file for writing - ./result
+[ 20/11/2024 15:26:56 ] OutputFile::OpenFile, Unexpected Failure. Cannot open file for writing - ./temp/
