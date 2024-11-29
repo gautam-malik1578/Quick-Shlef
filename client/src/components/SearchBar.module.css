@@ -1,0 +1,28 @@
+.searchbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.inputfeild {
+  border-radius: 7px;
+  border: 1px solid #ff385c;
+  outline: none;
+  height: 20px;
+  width: 220px;
+  padding: 2px 4px;
+  color: #ff385c;
+  transition: all 0.3s;
+}
+.inputfeild:focus {
+  /* transform: translateY(-3px); */
+  width: 250px;
+}
+.icon {
+  color: #ff385c;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.icon:hover {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
+  transform: scale(1.1);
+}

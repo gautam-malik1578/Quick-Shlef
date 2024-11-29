@@ -1,0 +1,33 @@
+.logo {
+  /* width: 100%; */
+  width: 20%;
+  display: flex;
+  /* background-color: pink; */
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 0;
+}
+figure {
+  /* display: inline-block; */
+  /* background-color: palegreen; */
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  overflow: hidden;
+  transform: translateX(-50px);
+}
+figure img {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.span {
+  /* display: inline-block; */
+  text-transform: capitalize;
+  font-weight: 700;
+  color: #ff385c;
+  font-size: 24px;
+  /* background-color: palegreen; */
+  transform: translateX(-90px);
+}

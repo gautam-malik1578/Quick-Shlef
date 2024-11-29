@@ -1,0 +1,46 @@
+.navbar {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+  height: 70px;
+  overflow: hidden;
+  /* width: 100vw; */
+}
+.links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.links a:link,
+.links a:visited {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 0.3s;
+  border-radius: 5px;
+  /* color: #ff385c; */
+}
+.links a:hover,
+.links a:active {
+  transform: translateY(-3px);
+}
+
+.login {
+  background-color: #ff385c;
+  color: #fff;
+  padding: 5px 10px;
+}
+/* .login:hover {
+  background-color: #fff;
+  color: #ff385c;
+} */
+.links a span {
+  font-size: 16px;
+}
+.icon {
+  color: #ff385c;
+}
