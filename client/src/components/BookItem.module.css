@@ -5,12 +5,14 @@
   overflow: hidden;
   border-radius: 5px;
   cursor: pointer;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15);
   display: inline-block;
   transition: all 0.3s;
 }
 .BookItemFig:hover {
-  transform: translate(1px, -3px);
+  /* transform: translate(1px, -3px); */
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+  /* transform: scale(1.1); */
 }
 .BookItemImg {
   height: 100%;

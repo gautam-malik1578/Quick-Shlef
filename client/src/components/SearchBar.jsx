@@ -8,7 +8,12 @@ function SearchBar() {
   const showFilter = useSelector((state) => state.search.showFilterBox);
   console.log("the value of showFilterBox is", showFilter);
   return (
-    <form className={styles.searchbar}>
+    <form
+      className={styles.searchbar}
+      onSubmit={(e) => {
+        e.preventDefault();
+      }}
+    >
       <HiFilter
         className={styles.icon}
         onClick={() => {
@@ -16,7 +21,12 @@ function SearchBar() {
           //   console.log("called the fun to show filter box");
         }}
       />
-      <input type="text" id="searchString" className={styles.inputfeild} />
+      <input
+        type="text"
+        id="searchString"
+        className={styles.inputfeild}
+        placeholder="Search here ..."
+      />
       <label htmlFor="searchString">
         <HiOutlineSearch className={styles.icon} />
       </label>

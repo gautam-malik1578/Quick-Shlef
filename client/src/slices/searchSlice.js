@@ -4,7 +4,7 @@ const initialState = {
   searchtype: "title", // other one will be by author (at the end of the day we are only finding the books )
   showFilterBox: false,
   releasedYear: 1000,
-  isAvaliable: 0, //0- means does not matter -1 means 1 means only downloadable and 1 means non downloadedble
+  isAvaliable: 0, //0- means does not matter -1  means only downloadable and 1 means non downloadedble
   genre: [],
   maxSize: 5,
   minSize: 1, // we are talking in mb mate

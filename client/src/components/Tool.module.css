@@ -1,0 +1,40 @@
+.tool {
+  background-color: #fff;
+  width: 200px;
+  height: 200px;
+  border-radius: 9px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+  padding: 5px;
+  /* background-image: linear-gradient(
+    125deg,
+    white 0%,
+    white 50%,
+    var(--color-blue) 50%
+  );
+  background-size: 250%;
+  background-clip: text;
+  transition: all 0.3s;
+  color: transparent; */
+}
+.tool:hover {
+  cursor: pointer;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15);
+  transform: scale(1.025);
+  background-position: 100%;
+}
+.figureItem {
+  display: block;
+  margin: 5px auto;
+  transform: translateX(5px);
+}
+.toolName {
+  text-align: center;
+  color: #ff383c;
+}
+h3 {
+  text-transform: capitalize;
+}
+.tooldescription {
+  text-align: center;
+}

@@ -12,6 +12,9 @@ import Verify from "./Pages/Verify";
 import PageNotFound from "./Pages/PageNotFound";
 import AppLayout from "./AppLayout";
 import FilterBox from "./components/FilterBox";
+import BookItem from "./components/BookItem";
+import BookDetail from "./components/BookDetail";
+import ConverterBox from "./Pages/ConverterBox";
 function App() {
   return (
     <div>
@@ -28,6 +31,8 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/me" element={<Me />} />
             <Route path="/verify" element={<Verify />} />
+            <Route path="/bookDetail/:id" element={<BookDetail />} />
+            <Route path="/tool/:type" element={<ConverterBox />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>
