@@ -15,6 +15,7 @@ const PORT = process.env.PORT || 5000;
 const bookRouter = require("./routers/BooksRoute");
 const userRouter = require("./routers/UserRoute");
 const fileRouter = require("./routers/fileRoute");
+const commetRouter = require("./routers/CommentRoute");
 
 const dbpath = process.env.DATABASE.replace(
   "<db_password>",
@@ -36,6 +37,8 @@ app.use("/api/v1/book", bookRouter);
 app.use("/api/v1/user", userRouter);
 //------------------------ file convert route--------------------------------
 app.use("/api/v1/file", fileRouter); // this is temp we should put it right there mate
+//------------------------ comment  route--------------------------------
+app.use("/api/v1/comment", commetRouter); // this is temp we should put it right there mate
 
 app.all("*", async (req, res) => {
   res.status(404).json({

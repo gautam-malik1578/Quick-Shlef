@@ -57,6 +57,7 @@ exports.login = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: "success",
     token,
+    user,
   });
 });
 
@@ -64,7 +65,9 @@ exports.protect = catchAsync(async (req, res, next) => {
   console.log("we reached the  protrect ⛔⛔⛔⛔⛔");
   // step 1 get token and check it is there
   let token = "";
-  if (
+  if (req?.query?.token.length > 1) {
+    token = req.query.token;
+  } else if (
     req.headers.authorization &&
     req.headers.authorization.startsWith("Bearer")
   ) {

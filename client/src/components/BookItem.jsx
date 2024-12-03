@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./BookItem.module.css";
 
-function BookItem() {
+function BookItem({ data }) {
   const navigator = useNavigate();
   return (
     <figure
       className={styles.BookItemFig}
       onClick={() => {
-        navigator("/bookDetail/12345");
+        navigator(`/bookDetail/${data._id}`);
       }}
     >
       <img

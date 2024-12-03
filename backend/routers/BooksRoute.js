@@ -7,7 +7,7 @@ const {
   downloadBookById,
 } = require("../controllers/BooksControllers");
 const { protect, restrictTo } = require("../controllers/AuthController");
-Router.get("/", protect, getAllBooks).post(
+Router.get("/", getAllBooks).post(
   "/",
   protect,
   restrictTo("admin"),

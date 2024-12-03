@@ -18,3 +18,39 @@
   background-color: white;
   border-radius: 10px;
 }
+.filterboxhead {
+  text-align: center;
+  color: #ff385c;
+}
+.filterboxform {
+  padding: 25px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.filterboxItem {
+  display: flex;
+  flex-direction: column;
+}
+.filterboxItem label {
+  text-transform: capitalize;
+}
+.filterboxItem input,
+.filterboxItem select,
+.filterboxItem option:hover {
+  cursor: pointer;
+}
+.filterboxbtn {
+  background-color: #ff385c;
+  color: white;
+  border-radius: 5px;
+  /* border: 1px solid white; */
+  border: none;
+  height: 25px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+}
+.filterboxbtn:hover {
+  cursor: pointer;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+}

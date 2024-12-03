@@ -1,0 +1,43 @@
+.comment {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5px;
+  min-height: 110px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+.meta {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: pink; */
+}
+.actionBtns {
+  align-self: flex-end;
+  display: flex;
+  gap: 4px;
+}
+.actionBtns button {
+  padding: 5px 10px;
+  text-transform: capitalize;
+  background-color: #ff385c;
+  color: #fff;
+  border-radius: 3px;
+  overflow: hidden;
+  border: none;
+}
+.actionBtns button:hover {
+  cursor: pointer;
+}
+.name {
+  text-transform: capitalize;
+  font-weight: 700;
+  color: #ff385c;
+}
+.content {
+  width: 1000px;
+}

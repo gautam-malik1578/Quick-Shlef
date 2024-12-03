@@ -24,7 +24,7 @@ const userSlice = createSlice({
       state.token = action.payload.token;
       state.userId = action.payload.userId;
       state.username = action.payload.username;
-      state.gender = action.payload.gender;
+      state.gender = action.payload.gender || "male";
       state.email = action.payload.email;
     },
   },

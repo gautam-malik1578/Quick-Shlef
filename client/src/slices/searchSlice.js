@@ -3,9 +3,9 @@ const initialState = {
   searchString: "",
   searchtype: "title", // other one will be by author (at the end of the day we are only finding the books )
   showFilterBox: false,
-  releasedYear: 1000,
+  releasedYear: 2010,
   isAvaliable: 0, //0- means does not matter -1  means only downloadable and 1 means non downloadedble
-  genre: [],
+  genre: ["any"],
   maxSize: 5,
   minSize: 1, // we are talking in mb mate
 };
@@ -13,10 +13,10 @@ const searchSlice = createSlice({
   name: "search",
   initialState,
   reducers: {
-    searchTypeToAuthor(state, action) {
+    searchTypeToAuthor(state) {
       state.searchtype = "author";
     },
-    searchTypeToTitle(state, action) {
+    searchTypeToTitle(state) {
       state.searchtype = "title";
     },
     setMaxSize(state, action) {
