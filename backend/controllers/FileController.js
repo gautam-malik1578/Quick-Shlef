@@ -429,7 +429,7 @@ exports.toWebP = catchAsync(async (req, res, next) => {
 exports.downloadPdf = catchAsync(async (req, res, next) => {
   const pdfName = req.params.pdfName;
   const filePath = path.join(__dirname, `../temp/${pdfName}`);
-  console.log("the book name is ----", pdfName);
+  console.log("the book name is download file----", pdfName);
   // Stream the file to the response   "./controllers/Node.js-Express-in-Action"
   res.download(filePath, "mypdf.pdf", (err) => {
     if (err) {

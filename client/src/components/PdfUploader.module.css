@@ -1,0 +1,108 @@
+.uploaderBoxwrapper {
+  width: 1150px;
+  margin: 0 auto;
+  /* background-color: pink; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  /* background-color: #fff; */
+}
+.uploaderBox {
+  /* width: 500px; */
+  width: 60%;
+  /* background-color: #fff; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.PdfUploaderHead {
+  color: #ff385c;
+  text-align: center;
+  /* position: relative; */
+}
+
+.pdfpreview {
+  width: 210px;
+  height: 250px;
+  object-fit: contain;
+  padding: 0;
+  border-radius: 5px;
+  border: 1px solid #ff385c;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  /* cursor: pointer; */
+}
+.pdfpreview:hover {
+  cursor: pointer;
+}
+
+.pdfpreviewBox {
+  /* background-color: pink; */
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  flex-direction: column;
+  gap: 20px;
+}
+button {
+  padding: 5px 10px;
+  min-width: 100px;
+  transition: all 0.3s;
+}
+button {
+  cursor: pointer;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.05);
+}
+.uploadBtns {
+  margin-top: 10px;
+  /* background-color: pink; */
+  /* width: 300px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.actionBtns {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.actionBtns button {
+  border: none;
+  background-color: #ff385c;
+  color: #fff;
+  border-radius: 3px;
+}
+.downloadBtn:link,
+.downloadBtn:visited {
+  min-width: 100px;
+  background-color: #ff385c;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.downloadBtn:hover,
+.downloadBtn:active {
+  background-color: #fff;
+  color: #ff385c;
+}
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-top: 10px;
+}
+.inputField {
+  outline: none;
+  padding: 1px 4px;
+  border-radius: 3px;
+  border: 1px solid #ff385c;
+  color: #ff385c;
+}

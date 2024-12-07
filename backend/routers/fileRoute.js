@@ -27,10 +27,10 @@ router.post("/pdf/trim", PdfForTrim, PdfTrim);
 router.post("/pdf/append", PdfForAppend, PdfAppend);
 router.post("/pdf/password", PdfForEncrypt, pdfEncrypt);
 router.post("/img/convert/pdf", imgsToPdf0, imgsToPdf);
-router.post("/png/convert/jpeg", protect, PngUpload, toJpg);
-router.post("/png/convert/webp", protect, PngUpload, toWebP);
-router.post("/jpeg/convert/png", protect, JpgUpload, toPng); //this is what we have this is what we have to do
-router.post("/jpeg/convert/webp", protect, JpgUpload, toWebP);
-router.post("/webp/convert/png", protect, WebpUpload, toPng);
-router.post("/webp/convert/jpg", protect, WebpUpload, toJpg);
+router.post("/png/convert/jpeg", PngUpload, toJpg);
+router.post("/png/convert/webp", PngUpload, toWebP);
+router.post("/jpeg/convert/png", JpgUpload, toPng); //this is what we have this is what we have to do
+router.post("/jpeg/convert/webp", JpgUpload, toWebP);
+router.post("/webp/convert/png", WebpUpload, toPng);
+router.post("/webp/convert/jpg", WebpUpload, toJpg);
 module.exports = router;
