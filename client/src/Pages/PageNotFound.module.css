@@ -1,0 +1,11 @@
+.annimationbox {
+  margin: 0 auto;
+  height: 150px;
+  width: 150px;
+}
+.PageNotFound {
+  height: 100vh;
+  overflow: scroll;
+  display: flex;
+  align-items: center;
+}

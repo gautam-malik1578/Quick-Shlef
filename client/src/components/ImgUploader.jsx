@@ -5,6 +5,7 @@ import { useProcessimgs } from "../hooks/useProcessImgs";
 import styles from "./ImgUploader.module.css";
 import loginAnnimation from "../annimations/processingFile.json";
 import ThinkingAnnimation from "../annimations/ThinkingAnnimation.json";
+import DownloadAnnimation from "../annimations/DownloadAnnimation.json";
 import Loader from "./Loader";
 function ImgUploader() {
   const { type: conversionType } = useParams();
@@ -19,10 +20,10 @@ function ImgUploader() {
     mutate(data, {
       onSuccess: (data) => {
         console.log(data.link);
-        if (conversionType.startsWith("img")) {
-          setShowDownload(true);
-          setDownloadLink(data.link);
-        }
+        // if (conversionType.startsWith("img")) {
+        setShowDownload(true);
+        setDownloadLink(data.link);
+        // }
         setImage(null);
       },
     });
@@ -95,7 +96,7 @@ function ImgUploader() {
             <Loader
               height={140}
               width={140}
-              anni={ThinkingAnnimation}
+              anni={showDownload ? DownloadAnnimation : ThinkingAnnimation}
               text="select a file"
             />
           </div>
@@ -116,20 +117,22 @@ function ImgUploader() {
           }}
           className={styles.uploaderBoxForm}
         >
-          <div>
-            <button disabled={isLoading} className={styles.uploaderBoxbtn}>
-              <label htmlFor="image-upload" style={{ cursor: "pointer" }}>
-                {image ? "Change Image" : "Upload Image"}
-              </label>
-            </button>
-            <input
-              type="file"
-              id="image-upload"
-              accept="image/png, image/jpeg, image/webp"
-              style={{ display: "none" }}
-              onChange={handleImageUpload}
-            />
-          </div>
+          {!showDownload && (
+            <div>
+              <button disabled={isLoading} className={styles.uploaderBoxbtn}>
+                <label htmlFor="image-upload" style={{ cursor: "pointer" }}>
+                  {image ? "Change Image" : "Upload Image"}
+                </label>
+              </button>
+              <input
+                type="file"
+                id="image-upload"
+                accept="image/png, image/jpeg, image/webp"
+                style={{ display: "none" }}
+                onChange={handleImageUpload}
+              />
+            </div>
+          )}
           {!conversionType.startsWith("img") && image && (
             <div>
               <label htmlFor="outputsize">Size </label>
@@ -170,7 +173,7 @@ function ImgUploader() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Download Pdf
+              Download file
             </a>
           )}
         </form>

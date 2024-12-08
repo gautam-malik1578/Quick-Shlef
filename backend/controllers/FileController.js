@@ -363,18 +363,24 @@ exports.JpgUpload = JpgUpload.single("image"); // Allow exactly 1 image
 exports.toJpg = catchAsync(async (req, res, next) => {
   // by now we are sure we have a png file in req.file
   console.log("this is checkpoint 1👮👮👮👮⛔⛔");
-  const outputPath1 = path.join(__dirname, "temp");
-  const jpgPath = path.join(outputPath1, `img_${Date.now()}.jpg`);
-  const size = req.body.size || 200;
-  //   console.log("this is checkpoint 2👮👮👮👮⛔⛔", req.file);
+  const outputPath1 = path.join(__dirname, "../temp");
+  const imgName = `img_${Date.now()}.jpg`;
+  const jpgPath = path.join(outputPath1, imgName);
+  const size = req.body.size * 1 || 200;
+  console.log("this is checkpoint 2👮👮👮👮⛔⛔", req.file);
   await sharp(req.file.buffer).resize(size).toFile(jpgPath); // this will puth the converted file to the /temp
   console.log("this is checkpoint 3👮👮👮👮⛔⛔");
-  res.download(jpgPath, "output.jpg", async (err) => {
-    if (err) {
-      return next(err);
-    }
-    await fxs.unlink(jpgPath);
-    console.log("all went wll mate ");
+  console.log(jpgPath);
+  // res.download(jpgPath, "output.jpg", async (err) => {
+  //   if (err) {
+  //     return next(err);
+  //   }
+  //   await fxs.unlink(jpgPath);
+  //   console.log("all went wll mate ");
+  // });
+  res.status(200).json({
+    status: "sucess",
+    link: `http://127.0.0.1:5000/api/v1/file/downloadImg/${imgName}`,
   });
 });
 //--------------------------ok lets try to convert the png to jpeg-------------------------//
@@ -384,21 +390,18 @@ exports.toJpg = catchAsync(async (req, res, next) => {
 exports.toPng = catchAsync(async (req, res, next) => {
   // Ensure we have a JPG file in `req.file`
   console.log("this is checkpoint 1👮👮👮👮⛔⛔");
-  const outputPath1 = path.join(__dirname, "temp");
-  const pngPath = path.join(outputPath1, `img_${Date.now()}.png`);
+  const outputPath1 = path.join(__dirname, "../temp");
+  const imgName = `img_${Date.now()}.png`;
+  const pngPath = path.join(outputPath1, imgName);
   const size = req.body.size || 200;
   // Resize and convert the JPG to PNG
   await sharp(req.file.buffer).resize(size).toFile(pngPath);
   console.log("this is checkpoint 2👮👮👮👮⛔⛔");
 
-  // Send the converted file as a download
-  res.download(pngPath, "output.png", async (err) => {
-    if (err) {
-      return next(err);
-    }
-    // Clean up the temporary PNG file
-    await fxs.unlink(pngPath);
-    console.log("all went well mate");
+  // Send the link to  download
+  res.status(200).json({
+    status: "sucess",
+    link: `http://127.0.0.1:5000/api/v1/file/downloadImg/${imgName}`,
   });
 });
 
@@ -407,21 +410,18 @@ exports.toPng = catchAsync(async (req, res, next) => {
 exports.toWebP = catchAsync(async (req, res, next) => {
   // Ensure we have a JPG file in `req.file`
   console.log("this is checkpoint 1👮👮👮👮⛔⛔");
-  const outputPath1 = path.join(__dirname, "temp");
-  const webpPath = path.join(outputPath1, `img_${Date.now()}.webp`);
+  const outputPath1 = path.join(__dirname, "../temp");
+  const imgName = `img_${Date.now()}.webp`;
+  const webpPath = path.join(outputPath1, imgName);
   const size = req.body.size || 200;
   // Resize and convert the JPG to PNG
   await sharp(req.file.buffer).resize(size).toFile(webpPath);
   console.log("this is checkpoint 2👮👮👮👮⛔⛔");
 
-  // Send the converted file as a download
-  res.download(webpPath, "output.webp", async (err) => {
-    if (err) {
-      return next(err);
-    }
-    // Clean up the temporary PNG file
-    await fxs.unlink(webpPath);
-    console.log("all went well mate");
+  // Send the converted file link to donlwoad download
+  res.status(200).json({
+    status: "sucess",
+    link: `http://127.0.0.1:5000/api/v1/file/downloadImg/${imgName}`,
   });
 });
 //--------------------------ok let's do jpeg to webp ----------------------------------------///
@@ -449,3 +449,29 @@ exports.downloadPdf = catchAsync(async (req, res, next) => {
   });
 });
 ///////////////////////////////////////////////////////////////////
+////////////////////////////download img///////////////////////
+exports.downloadImg = catchAsync(async (req, res, next) => {
+  const imgName = req.params.imgName;
+  const arr = imgName.split(".");
+  const ext = arr[arr.length - 1];
+  const filePath = path.join(__dirname, `../temp/${imgName}`);
+  console.log("the img name is download file----", imgName);
+  // Stream the file to the response   "./controllers/Node.js-Express-in-Action"
+  res.download(filePath, `myImg.${ext}`, (err) => {
+    if (err) {
+      return res.status(500).json({
+        status: "error",
+        message: "Error downloading file",
+        error: err.message,
+      });
+    } else {
+      fxs
+        .unlink(filePath)
+        .then((data) => console.log("deleted the img as well"))
+        .catch((err) => {
+          console.log("we hade error in delted img file", filePath);
+        });
+    }
+  });
+});
+////////////////////////////download img///////////////////////

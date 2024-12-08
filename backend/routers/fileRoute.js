@@ -18,11 +18,13 @@ const {
   toPng,
   toWebP,
   downloadPdf,
+  downloadImg,
 } = require("../controllers/FileController");
 const router = express.Router();
 // router.post("/pdf/insert", (req, res) => res.send("working on it "));
 // router.post("/pdf/convert/img", protect, PdfToImg0, PdfToImg); /// these to lads are pending
 router.get("/pdf/download/:pdfName", downloadPdf);
+router.get("/downloadImg/:imgName", downloadImg);
 router.post("/pdf/trim", PdfForTrim, PdfTrim);
 router.post("/pdf/append", PdfForAppend, PdfAppend);
 router.post("/pdf/password", PdfForEncrypt, pdfEncrypt);
