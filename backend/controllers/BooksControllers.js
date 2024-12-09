@@ -110,7 +110,7 @@ exports.getBookById = catchAsync(async (req, res, next) => {
 exports.downloadBookById = catchAsync(async (req, res, next) => {
   const id = req.params.id;
 
-  // Find the book by ID
+  // Find our book
   const book = await Book.findById(id);
 
   // Check if the book exists
@@ -120,13 +120,13 @@ exports.downloadBookById = catchAsync(async (req, res, next) => {
       message: "No book found with that ID",
     });
   }
-  const filePath = path.join(__dirname, "Node.js-Express-in-Action.pdf");
+  const filePath = path.join(__dirname, `../books/${book.title}.pdf`);
   // Stream the file to the response   "./controllers/Node.js-Express-in-Action"
-  res.download(filePath, "Node.js-Express-in-Action.pdf", (err) => {
+  res.download(filePath, `${book.title}.pdf`, (err) => {
     if (err) {
       return res.status(500).json({
         status: "error",
-        message: "Error downloading file",
+        message: "Error downloading Book ",
         error: err.message,
       });
     }

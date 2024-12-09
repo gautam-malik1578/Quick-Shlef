@@ -29,7 +29,7 @@ export function buildString(prefrance) {
     }
   }
   if (searchquery.length > 1) searchquery += "&";
-  searchquery += `size[gte]=${maxSize}&fields=title,imgUrl,likes`;
+  searchquery += `size[lte]=${maxSize}&fields=title,imgUrl,likes`;
   //lets add the sorting to give some diffrent results at random
   let random = ["likes", "releasedYear", "size", "author"];
   const idx = Math.floor(Math.random() * random.length); // Generates a random index between 0 and 3

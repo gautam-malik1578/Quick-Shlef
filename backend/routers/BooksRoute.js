@@ -13,7 +13,7 @@ Router.get("/", getAllBooks).post(
   restrictTo("admin"),
   createBook
 );
-Router.get("/download/:id", protect, downloadBookById);
-Router.get("/:id", protect, getBookById);
+Router.get("/download/:id", downloadBookById);
+Router.get("/:id", getBookById);
 module.exports = Router;
 ///https:// api/v1/books/get

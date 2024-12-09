@@ -7,3 +7,11 @@ export async function searchBook(queryString) {
   }
   return res;
 }
+export async function getBookById(id) {
+  const req = await fetch(`${BASE_URL}book/${id}`);
+  const res = await req.json();
+  if (res.status === "fail") {
+    throw new Error(res.message);
+  }
+  return res;
+}

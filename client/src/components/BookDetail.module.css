@@ -96,6 +96,29 @@
   text-transform: capitalize;
   font-weight: 500;
 }
+.genres {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
 .about {
   margin: 10px 0;
+}
+.Downloadbtn:link,
+.Downloadbtn:visited {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  /* background-color: #ff385c; */
+  background-color: #fff;
+  color: #ff385c;
+  border: 1px solid #ff385c;
+  padding: 5px;
+  border-radius: 3px;
+  transition: all 0.3s;
+}
+.Downloadbtn:hover,
+.Downloadbtn:active {
+  transform: scale(1.03);
 }

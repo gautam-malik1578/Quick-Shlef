@@ -3,7 +3,7 @@ const initialState = {
   searchString: "",
   searchtype: "title", // other one will be by author (at the end of the day we are only finding the books )
   showFilterBox: false,
-  releasedYear: 2010,
+  releasedYear: 2020,
   isAvaliable: 0, //0- means does not matter -1  means only downloadable and 1 means non downloadedble
   genre: ["any"],
   maxSize: 5,

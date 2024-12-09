@@ -31,8 +31,23 @@
   /* flex-direction: column; */
   gap: 5px;
   align-items: center;
+  position: relative;
   /* justify-content: center; */
 }
+.MeItem::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  background-image: linear-gradient(
+    to right,
+    #ff385c,
+    #ffb199
+  ); /* Gradient from #ff385c to #ffb199 */
+}
+
 .MeItem p:first-child {
   font-size: 12px;
   min-width: 60px;
