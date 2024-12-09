@@ -18,6 +18,7 @@
   margin: 0 auto;
   /* background-color: pink; */
 }
+
 .summary {
   text-transform: capitalize;
   position: relative;
@@ -39,4 +40,13 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+/* ---------------------------------------------------------------------------- */
+@media screen and (max-width: 360px) {
+  .librarywrapper {
+    width: 286px;
+  }
+  .library {
+    width: 280px;
+  }
 }

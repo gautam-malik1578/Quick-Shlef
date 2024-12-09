@@ -54,3 +54,12 @@
   cursor: pointer;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
 }
+@media screen and (max-width: 360px) {
+  .filterboxoverlay {
+    height: 100%;
+  }
+  .filterbox {
+    height: 550px;
+    width: 280px;
+  }
+}

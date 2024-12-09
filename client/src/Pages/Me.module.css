@@ -77,3 +77,16 @@
   color: #ff385c;
   background-color: #fff;
 }
+@media screen and (max-width: 360px) {
+  .me {
+    width: 270px;
+  }
+  .MeItem p:first-child {
+    font-size: 10px;
+    min-width: 40px;
+    /* background-color: pink; */
+  }
+  .MeItem p:last-child {
+    font-size: 12px;
+  }
+}

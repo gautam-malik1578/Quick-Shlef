@@ -17,6 +17,11 @@
   /* transform: translateY(-3px); */
   width: 250px;
 }
+.iconSearch {
+  color: #ff385c;
+  cursor: pointer;
+  transition: all 0.3s;
+}
 .icon {
   color: #ff385c;
   cursor: pointer;
@@ -25,4 +30,20 @@
 .icon:hover {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
   transform: scale(1.1);
+}
+@media screen and (max-width: 360px) {
+  .searchbar {
+    gap: 3px;
+  }
+  .inputfeild {
+    width: 80px;
+    font-size: 8px;
+    height: 15px;
+  }
+  .inputfeild:focus {
+    width: 82px;
+  }
+  .iconSearch {
+    display: none;
+  }
 }

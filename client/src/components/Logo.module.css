@@ -31,3 +31,22 @@ figure img {
   /* background-color: palegreen; */
   transform: translateX(-90px);
 }
+@media screen and (max-width: 360px) {
+  .logo {
+    justify-content: flex-start;
+    /* flex-wrap: wrap-reverse; */
+    /* width: 100px; */
+    /* background-color: pink; */
+    /* gap: 5px; */
+    margin-left: 10px;
+  }
+  figure {
+    width: 30px;
+    height: 30px;
+    transform: translateX(0);
+  }
+  .span {
+    font-size: 10px;
+    /* display: none; */
+  }
+}

@@ -2,6 +2,10 @@
   width: 1200px;
   /* background-color: yellow; */
   margin: 0 auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   /* display: flex;
   align-items: center;
   justify-content: center;
@@ -52,16 +56,21 @@
 
 .backbtn {
   position: absolute;
-  top: 5%;
-  left: 3%;
+  top: 30px;
+  left: 30px;
   border-radius: 5px;
-  padding: 3px 10px;
+  padding: 3px 6px;
   font-size: 20px;
   border: 1px solid #ff385c;
-  background-color: #fff;
+  background-color: #ff385c;
   transition: all 0.3s;
+  min-width: 30px;
   /* position: relative; */
 }
+.iconBack {
+  color: #fff;
+}
+
 .backbtn:hover {
   background-color: #ff385c;
   cursor: pointer;
@@ -121,4 +130,36 @@
 .Downloadbtn:hover,
 .Downloadbtn:active {
   transform: scale(1.03);
+}
+@media screen and (max-width: 360px) {
+  .meta {
+    width: 280px;
+    gap: 5px;
+  }
+  .meta p {
+    font-size: 10px;
+  }
+  .meta .btn {
+    font-size: 10px;
+  }
+  .about {
+    width: 280px;
+    font-size: 12px;
+  }
+  .Downloadbtn:link,
+  .Downloadbtn:visited {
+    font-size: 10px;
+  }
+  .btn {
+    font-size: 10px;
+    min-width: 50px;
+    gap: 3px;
+  }
+  .BookDetailwrapper {
+    width: 285px;
+    /* background-color: #fff; */
+  }
+  .BookDetail {
+    padding: 2px 30px;
+  }
 }

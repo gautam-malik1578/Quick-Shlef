@@ -83,3 +83,11 @@
   background-color: #fff;
   color: #ff385c;
 }
+@media screen and (max-width: 360px) {
+  .uploaderBoxwrapper {
+    width: 280px;
+  }
+  .uploaderBox {
+    width: 100%;
+  }
+}

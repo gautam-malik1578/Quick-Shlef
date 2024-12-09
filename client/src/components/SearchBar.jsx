@@ -53,7 +53,7 @@ function SearchBar() {
           // handleSearch();
         }}
       >
-        <HiOutlineSearch className={styles.icon} />
+        <HiOutlineSearch className={styles.iconSearch} />
       </label>
     </form>
   );

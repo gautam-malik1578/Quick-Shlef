@@ -25,3 +25,11 @@
   height: 150px;
   width: 150px;
 }
+@media screen and (max-width: 360px) {
+  .comments {
+    width: 280px;
+  }
+  .comments p {
+    font-size: 12px;
+  }
+}

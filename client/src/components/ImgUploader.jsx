@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useProcessimgs } from "../hooks/useProcessImgs";
 import styles from "./ImgUploader.module.css";
 import loginAnnimation from "../annimations/processingFile.json";
@@ -15,6 +15,7 @@ function ImgUploader() {
   const [downloadLink, setDownloadLink] = useState("");
   const [Outputsize, setOutputSize] = useState(300);
   const { mutate, isLoading } = useProcessimgs();
+  const navigator = useNavigate();
   function handleSubmit() {
     const data = { image: imageData, size: Outputsize };
     mutate(data, {
@@ -176,6 +177,15 @@ function ImgUploader() {
               Download file
             </a>
           )}
+          <button
+            disabled={isLoading}
+            className={styles.uploaderBoxbtn}
+            onClick={(e) => {
+              navigator(-1);
+            }}
+          >
+            back
+          </button>
         </form>
       </div>
     </div>

@@ -7,7 +7,7 @@ import DownloadAnnimation from "../annimations/DownloadAnnimation.json";
 import { useState } from "react";
 // import { Document, Page, pdfjs } from "react-pdf";
 // pdfjs.GlobalWorkerOptions.workerSrc = "/js/pdf.worker.mjs";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useProcessPdf } from "../hooks/useProcessPdf";
 const maxSize = 1 * 1024 * 1024;
@@ -27,6 +27,7 @@ function PdfUploader() {
   const [downloadLink, setDownloadLink] = useState("");
   const { type } = useParams();
   const { mutate: processPdf, isLoading: isProcessing } = useProcessPdf();
+  const navigator = useNavigate();
   //////////////////////////////// handle convert  //////////////////////////////
   function handleConvert() {
     if (type.startsWith("lock") && passowrd.length < 8) {
@@ -256,6 +257,9 @@ function PdfUploader() {
                 {isProcessing ? "Processing" : "Process"}
               </button>
             )}
+            <button disabled={isProcessing} onClick={() => navigator(-1)}>
+              back
+            </button>
             {showDownload && (
               <a
                 className={styles.downloadBtn}

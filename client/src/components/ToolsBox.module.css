@@ -1,5 +1,12 @@
 .toolsbox {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
+}
+@media screen and (max-width: 360px) {
+  .toolsbox {
+    align-items: center;
+    justify-content: center;
+  }
 }

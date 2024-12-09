@@ -1,5 +1,38 @@
+.Converter {
+  position: relative;
+}
 .header {
   color: black;
+  color: #ff385c;
   text-align: center;
   text-transform: capitalize;
+}
+.backbtn {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  /* padding: 1px; */
+  border: none;
+  color: #fff;
+  background-color: #ff385c;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  min-width: 20px;
+}
+
+@media screen and (max-width: 360px) {
+  .Converter {
+    padding: 5px;
+  }
+  .header {
+    font-size: 16px;
+    color: #ff385c;
+  }
+  .backbtn {
+    left: 5px;
+    font-size: 12px;
+    transform: scale(0.8);
+    top: 12px;
+  }
 }

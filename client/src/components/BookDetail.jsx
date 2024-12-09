@@ -145,7 +145,7 @@ function BookDetail() {
               navigator(-1);
             }}
           >
-            <IoIosArrowRoundBack className={styles.icon} />
+            <IoIosArrowRoundBack className={styles.iconBack} />
           </button>
           {show == "create" ? <CreateCommentForm setShow={setShow} /> : null}
           {show == "update" ? <UpdateCommentForm setShow={setShow} /> : null}

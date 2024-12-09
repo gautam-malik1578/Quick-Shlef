@@ -59,3 +59,11 @@
 .info {
   text-align: center;
 }
+@media screen and (max-width: 360px) {
+  .verifywrapper {
+    /* width: 280px; */
+  }
+  .verify {
+    width: 270px;
+  }
+}

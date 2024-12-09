@@ -58,3 +58,20 @@
 .icon {
   color: #ff385c;
 }
+@media screen and (max-width: 360px) {
+  .navbar {
+    font-size: 10px;
+    /* background-color: pink; */
+    min-width: 280px;
+  }
+  .links a span {
+    display: none;
+  }
+  .links {
+    gap: 8px;
+    margin-right: 5px;
+  }
+  .login {
+    padding: 3px 6px;
+  }
+}

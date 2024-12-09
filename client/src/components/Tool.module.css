@@ -38,3 +38,15 @@ h3 {
 .tooldescription {
   text-align: center;
 }
+@media screen and (max-width: 360px) {
+  .tool {
+    width: 100px;
+    height: 120px;
+  }
+  .toolName {
+    font-size: 14px;
+  }
+  .tooldescription {
+    font-size: 12px;
+  }
+}

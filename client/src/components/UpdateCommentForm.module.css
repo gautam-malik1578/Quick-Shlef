@@ -44,3 +44,11 @@
   height: 150px;
   width: 150px;
 }
+@media screen and (max-width: 360px) {
+  .CreateCommentFormWrapper {
+    width: 270px;
+  }
+  .createform label {
+    font-size: 12px;
+  }
+}

@@ -6,7 +6,6 @@ function AppLayout() {
   return (
     <div className={styles.applayout}>
       <Navbar />
-      {/* <SearchBar /> */}
       <Outlet />
     </div>
   );
