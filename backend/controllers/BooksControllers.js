@@ -28,6 +28,10 @@ exports.getAllBooks = catchAsync(async (req, res, next) => {
       $in: genres.map((genre) => new RegExp(`^${genre}$`, "i")), // ^ and $ ensure exact matches
     };
   }
+  if (finalQueryObj.title) {
+    // here title is a field and i wnat all that mathc the title in a regualr expresion
+    finalQueryObj.title = { $regex: new RegExp(finalQueryObj.title, "i") };
+  }
 
   console.log("Final query after adjustments:", finalQueryObj);
 
